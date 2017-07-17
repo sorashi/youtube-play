@@ -62,7 +62,7 @@ namespace youtube_play
                     bestStreamableAudioFormat = audioOnly.OrderByDescending(x => x.Bitrate).First();
                     return bestStreamableAudioFormat;
                 }
-                // else return streamable video format (choose best by number of pixels #fixme)
+                // else return the best streamable video format
                 bestStreamableAudioFormat = videoFormats.Where(x => x.Extension == "webm" || x.Extension == "mp4")
                     .Where(x => x.Width != null && x.Height != null || x.Bitrate != null)
                     .OrderByDescending(x => x.Bitrate ?? x.Width * x.Height)
