@@ -11,7 +11,6 @@ namespace youtube_play
 
         public Task StartPlaying(int volume = 20) {
             return Task.Factory.StartNew(async () => {
-                if (playQueue.Count <= 0) return;
                 while (playQueue.Count > 0) {
                     var current = playQueue.Dequeue();
                     var playerProcess = new Process {
