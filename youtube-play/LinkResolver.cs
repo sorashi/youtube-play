@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -55,6 +56,7 @@ namespace youtube_play
             public async Task<VideoFormat> GetBestStreamableAudioFormat() {
                 if (bestStreamableAudioFormat != null) return bestStreamableAudioFormat;
                 var videoFormats = await GetFormats();
+                if (videoFormats == null) return null;
                 // at first try to find audio only
                 var audioOnly = videoFormats.Where(x => x.Note == "DASH audio" &&
                                                    (x.Extension == "webm" || x.Extension == "m4a"));
@@ -103,11 +105,22 @@ namespace youtube_play
                             Arguments = "-j " + Id,
                             UseShellExecute = false,
                             RedirectStandardOutput = true,
+                            RedirectStandardError = true,
                             CreateNoWindow = true
                         }
                     };
                     iteratorProcess.Start();
-                    var jo = JObject.Parse(iteratorProcess.StandardOutput.ReadToEnd());
+                    var stdout = iteratorProcess.StandardOutput.ReadToEnd();
+                    var stderr = iteratorProcess.StandardError.ReadToEnd();
+                    iteratorProcess.WaitForExit();
+                    var code = iteratorProcess.ExitCode;
+                    if (code != 0) {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("An error occured while resolving the video link:\n" + stderr);
+                        Console.ResetColor();
+                        return null;
+                    }
+                    var jo = JObject.Parse(stdout);
                     return ResolveFormats(jo["formats"].ToString());
                 });
                 Formats = t;

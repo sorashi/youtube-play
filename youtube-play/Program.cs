@@ -51,7 +51,8 @@ namespace youtube_play
             if (!args.Any()) {
                 Console.WriteLine("\nUsage:");
                 Console.WriteLine("youtube-play <video/playlist/channel link> (one or more in a row)");
-                Console.WriteLine("Instead of a link, you can also pass at any time a '-f <filename>' option with a link on each line of the file");
+                Console.WriteLine(
+                    "Instead of a link, you can also pass at any time a '-f <filename>' option with a link on each line of the file");
                 return;
             }
             var arguments = ArgumentEnumerator(args);
@@ -62,9 +63,10 @@ namespace youtube_play
             Console.WriteLine("Entering loop");
             while (links.MoveNext()) {
 #if DEBUG
-                Console.WriteLine("[Debug] Current link: " + links.Current);
+                Console.WriteLine("[Debug] Current link: " + links.Current.Id);
 #endif
-                await player.AddToQueue(links.Current);
+                var count = await player.AddToQueue(links.Current);
+                if (count <= 0) continue;
                 if (first) {
                     first = false;
                     Console.WriteLine("Starting to play");

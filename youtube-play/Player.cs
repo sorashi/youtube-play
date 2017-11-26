@@ -32,7 +32,10 @@ namespace youtube_play
         }
 
         public async Task<int> AddToQueue(LinkResolver.Video video) {
-            await video.GetBestStreamableAudioFormat();
+            if (await video.GetBestStreamableAudioFormat() == null) {
+                Console.WriteLine("Skipped " + video.Title);
+                return playQueue.Count;
+            }
             Console.WriteLine("Link resolved: " + video.Title);
             playQueue.Enqueue(video);
             return playQueue.Count;
