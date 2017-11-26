@@ -10,9 +10,8 @@ namespace youtube_play
     internal class Program
     {
         private static void Main(string[] args) {
-            var version = new Semver.SemVersion(Assembly.GetExecutingAssembly().GetName().Version);
-            version = version.Change(prerelease: "beta");
-            Console.WriteLine("youtube-play " + version.ToString());
+            var version = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
+            Console.WriteLine("youtube-play " + version);
             try {
                 MainAsync().Wait();
             }
