@@ -20,6 +20,8 @@ Then execute the following command, to install `youtube-dl` and the `ffmpeg` pac
 choco install youtube-dl ffmpeg -y
 ```
 
+*Beware: currently, the ffmpeg build from Chocolatey doesn't support the `webm` format. To avoid this, use [an official nightly build](http://ffmpeg.zeranoe.com/builds/)*
+
 After that, you are ready to download youtube-play. Recent release with binaries can be found [here](https://github.com/Sorashi/youtube-play/releases/latest).
 
 # Usage
