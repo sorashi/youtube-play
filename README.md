@@ -50,6 +50,18 @@ You can use [foobar2000](http://www.foobar2000.org/) with the [foo_youtube](http
 - [ ] Random playback – `-r` flag which will turn random shuffle of the videos following after the flag, repeating the flag will turn the shuffle of for the following links and vice versa
 - [ ] Supporting links of playlist with specific videos specified (currently the whole playlist is played from start to end)
 
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://github.com/all-contributors/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars3.githubusercontent.com/u/11183274?v=4" width="100px;" alt="pcroland"/><br /><sub><b>pcroland</b></sub>](https://github.com/pcroland)<br />[🐛](https://github.com/sorashi/youtube-play/issues?q=author%3Apcroland "Bug reports") |
+| :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
 # What is happening behind the scenes
 
 It's pretty easy. I'll show you the process of doing the same thing without youtube-play (youtube-play uses a bit different commands that are more understandable for machines).

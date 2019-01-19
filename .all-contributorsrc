@@ -1,0 +1,23 @@
+{
+  "projectName": "youtube-play",
+  "projectOwner": "sorashi",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "pcroland",
+      "name": "pcroland",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/11183274?v=4",
+      "profile": "https://github.com/pcroland",
+      "contributions": [
+        "bug"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
