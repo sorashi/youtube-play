@@ -1,5 +1,6 @@
 youtube-play
 ===
+**Note: [mps-youtube](https://github.com/mps-youtube/mps-youtube) is a much better alternative to this project.**
 
 youtube-play is a command-line utility written in C#, which uses [youtube-dl](http://rg3.github.io/youtube-dl/) and [ffmpeg](https://ffmpeg.org/) to **stream** music from YouTube.
 
@@ -42,8 +43,9 @@ Run `youtube-play` with any number of arguments, where an argument can be either
 	- plays one video, then reads the file `list1.txt` and plays every link on each line of the file, then plays another video and then plays every link in the file `list2.txt`
 
 # Alternatives
-You can use [foobar2000](http://www.foobar2000.org/) with the [foo_youtube](https://fy.3dyd.com/) component to achieve the same. However, it's not a command-line utility, but a whole music player.
+**[mps-youtube](https://github.com/mps-youtube/mps-youtube) is a much better alternative to this project. It has a huge community of developers, is multi-platform and written in Python. Too bad I found out about mps-youtube so late.**
 
+You can use [foobar2000](http://www.foobar2000.org/) with the [foo_youtube](https://fy.3dyd.com/) component to achieve the same. However, it's not a command-line utility, but a whole music player.
 
 # Planned features
 - [ ] Global keyboard hook which will allow you to pause/stop the playback or skip the current song
