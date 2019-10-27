@@ -49,8 +49,8 @@ You can use [foobar2000](http://www.foobar2000.org/) with the [foo_youtube](http
 
 # Planned features
 - [ ] Global keyboard hook which will allow you to pause/stop the playback or skip the current song
-- [ ] Random playback – `-r` flag which will turn random shuffle of the videos following after the flag, repeating the flag will turn the shuffle of for the following links and vice versa
-- [ ] Supporting links of playlist with specific videos specified (currently the whole playlist is played from start to end)
+- [ ] Random playback – `-r` flag which will turn random shuffle on for the videos following the flag, repeating the flag will turn the shuffle off for the following links and vice versa
+- [ ] Support specifying ranges of videos from playlists to be played (currently the whole playlist is played from start to end)
 
 ## Contributors
 
