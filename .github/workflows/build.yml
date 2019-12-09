@@ -1,0 +1,16 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: MSBuild
+      run: msbuild /p:Configuration=Release youtube-play.sln
+    - name: Upload binary
+      uses: actions/upload-artifact@v1
+      with:
+        name: youtube-play
+        path: youtube-play/bin/Release/youtube-play.exe
