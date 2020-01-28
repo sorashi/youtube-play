@@ -2,7 +2,7 @@ youtube-play
 ===
 **Note: [mps-youtube](https://github.com/mps-youtube/mps-youtube) is a much better alternative to this project.**
 
-youtube-play is a command-line utility written in C#, which uses [youtube-dl](http://rg3.github.io/youtube-dl/) and [ffmpeg](https://ffmpeg.org/) to **stream** music from YouTube.
+youtube-play is a command-line utility for Windows written in C#, which uses [youtube-dl](http://rg3.github.io/youtube-dl/) and [ffmpeg](https://ffmpeg.org/) to **stream** music from YouTube.
 
 I needed a way to play music from YouTube without having Chrome open with a video playing in the background. That's why youtube-play is very lightweight. A quick analysis with [Process Explorer](https://technet.microsoft.com/sysinternals/processexplorer) shows 0.00…-0.01… % CPU usage and ~20 MB of RAM usage (including all sub-processes).
 
