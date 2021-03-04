@@ -1,14 +1,6 @@
 youtube-play
 ===
 
-```diff
-- youtube-dl was taken down due to a RIAA DMCA takedown request -
-```
-
-**This project depends on youtube-dl and is thus currently unfunctional. [The DMCA takedown request](https://github.com/github/dmca/blob/master/2020/10/2020-10-23-RIAA.md)**
-
----
-
 **Note: [mps-youtube](https://github.com/mps-youtube/mps-youtube) is a much better alternative to this project.**
 
 youtube-play is a command-line utility for Windows written in C#, which uses [youtube-dl](http://rg3.github.io/youtube-dl/) and [ffmpeg](https://ffmpeg.org/) to **stream** music from YouTube.
