@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace youtube_play
 {
@@ -24,11 +20,10 @@ namespace youtube_play
         /// first, that's fine, too.</summary>
         /// <param name="process"></param>
         public static void AddProcess(Process process) {
-            if (s_jobHandle != IntPtr.Zero) {
-                bool success = AssignProcessToJobObject(s_jobHandle, process.Handle);
-                if (!success)
-                    throw new Win32Exception();
-            }
+            if (s_jobHandle == IntPtr.Zero) return;
+            bool success = AssignProcessToJobObject(s_jobHandle, process.Handle);
+            if (!success)
+                throw new Win32Exception();
         }
 
         static ChildProcessTracker() {

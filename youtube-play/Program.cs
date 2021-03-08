@@ -10,38 +10,36 @@ namespace youtube_play
     internal class Program
     {
         private static void Main(string[] args) {
-            var version = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
+            var version = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
             Console.WriteLine("youtube-play " + version);
             try {
                 MainAsync().Wait();
             }
             catch (Exception e) {
-                while (e is AggregateException) e = e.InnerException;
-                throw e;
+                Console.WriteLine(e);
+                Console.ReadKey(true);
             }
         }
 
         private static IEnumerable<string> ArgumentEnumerator(IEnumerable<string> arguments) {
             // TODO: allow random iteration with -r flag
-            using (var enumerator = arguments.GetEnumerator()) {
-                while (enumerator.MoveNext()) {
-                    if (enumerator.Current == "-f") {
-                        if (!enumerator.MoveNext()) {
-                            Console.WriteLine("No file specified after -f.");
-                            continue;
-                        }
-                        if (!File.Exists(enumerator.Current)) {
-                            Console.WriteLine("Specified file doesn't exist: " + enumerator.Current);
-                        }
-                        using (var sr = new StreamReader(enumerator.Current)) {
-                            // TODO: return only if it's a valid YT link
-                            while (!sr.EndOfStream) {
-                                yield return sr.ReadLine();
-                            }
-                        }
+            using var enumerator = arguments.GetEnumerator();
+            while (enumerator.MoveNext()) {
+                if (enumerator.Current == "-f") {
+                    if (!enumerator.MoveNext()) {
+                        Console.WriteLine("No file specified after -f.");
+                        continue;
                     }
-                    yield return enumerator.Current;
+                    if (!File.Exists(enumerator.Current)) {
+                        Console.WriteLine("Specified file doesn't exist: " + enumerator.Current);
+                    }
+
+                    using var sr = new StreamReader(enumerator.Current ?? throw new Exception());
+                    // TODO: return only if it's a valid YT link
+                    while (!sr.EndOfStream)
+                        yield return sr.ReadLine();
                 }
+                yield return enumerator.Current;
             }
         }
 
@@ -56,7 +54,7 @@ namespace youtube_play
             }
             var arguments = ArgumentEnumerator(args);
             var player = new Player();
-            var links = arguments.SelectMany(x => LinkResolver.ResolveLink(x)).GetEnumerator();
+            var links = arguments.SelectMany(LinkResolver.ResolveLink).GetEnumerator();
             bool first = true;
             Task playingTask = null;
             Console.WriteLine("Entering loop");
@@ -78,7 +76,7 @@ namespace youtube_play
             }
             links.Dispose();
             Console.WriteLine("End of the list, waiting for the player to stop playing");
-            await playingTask;
+            if (playingTask != null) await playingTask;
         }
     }
 }

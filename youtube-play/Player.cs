@@ -7,12 +7,12 @@ namespace youtube_play
 {
     public class Player
     {
-        private Queue<LinkResolver.Video> playQueue = new Queue<LinkResolver.Video>();
+        private readonly Queue<LinkResolver.Video> _playQueue = new Queue<LinkResolver.Video>();
 
         public Task StartPlaying(int volume = 20) {
             return Task.Factory.StartNew(async () => {
-                while (playQueue.Count > 0) {
-                    var current = playQueue.Dequeue();
+                while (_playQueue.Count > 0) {
+                    var current = _playQueue.Dequeue();
                     var playerProcess = new Process {
                         StartInfo = new ProcessStartInfo {
                             FileName = "ffplay",
@@ -34,13 +34,13 @@ namespace youtube_play
         public async Task<int> AddToQueue(LinkResolver.Video video) {
             if (await video.GetBestStreamableAudioFormat() == null) {
                 Console.WriteLine("Skipped " + video.Title);
-                return playQueue.Count;
+                return _playQueue.Count;
             }
             Console.WriteLine("Link resolved: " + video.Title);
-            playQueue.Enqueue(video);
-            return playQueue.Count;
+            _playQueue.Enqueue(video);
+            return _playQueue.Count;
         }
 
-        public int QueuedLinksCount => playQueue.Count;
+        public int QueuedLinksCount => _playQueue.Count;
     }
 }

@@ -116,7 +116,7 @@ namespace youtube_play
                     var code = iteratorProcess.ExitCode;
                     if (code != 0) {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("An error occured while resolving the video link:\n" + stderr);
+                        Console.WriteLine("An error occurred while resolving the video link:\n" + stderr);
                         Console.ResetColor();
                         return null;
                     }
