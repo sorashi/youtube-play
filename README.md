@@ -63,9 +63,19 @@ You can use [foobar2000](http://www.foobar2000.org/) with the [foo_youtube](http
 Thanks goes to these wonderful people ([emoji key](https://github.com/all-contributors/all-contributors#emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
-| [<img src="https://avatars3.githubusercontent.com/u/11183274?v=4" width="100px;" alt="pcroland"/><br /><sub><b>pcroland</b></sub>](https://github.com/pcroland)<br />[🐛](https://github.com/sorashi/youtube-play/issues?q=author%3Apcroland "Bug reports") |
-| :---: |
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://sorashi.github.io/"><img src="https://avatars.githubusercontent.com/u/6270283?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dennis Pražák</b></sub></a><br /><a href="https://github.com/sorashi/youtube-play/commits?author=sorashi" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/pcroland"><img src="https://avatars3.githubusercontent.com/u/11183274?v=4?s=100" width="100px;" alt=""/><br /><sub><b>pcroland</b></sub></a><br /><a href="https://github.com/sorashi/youtube-play/issues?q=author%3Apcroland" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/themayankjha"><img src="https://avatars.githubusercontent.com/u/34495260?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mayank Jha</b></sub></a><br /><a href="#maintenance-themayankjha" title="Maintenance">🚧</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

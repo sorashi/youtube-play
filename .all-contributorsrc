@@ -10,6 +10,15 @@
   "commit": false,
   "contributors": [
     {
+      "login": "sorashi",
+      "name": "Dennis Pražák",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6270283?v=4",
+      "profile": "https://sorashi.github.io/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
       "login": "pcroland",
       "name": "pcroland",
       "avatar_url": "https://avatars3.githubusercontent.com/u/11183274?v=4",
@@ -17,7 +26,17 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "themayankjha",
+      "name": "Mayank Jha",
+      "avatar_url": "https://avatars.githubusercontent.com/u/34495260?v=4",
+      "profile": "https://github.com/themayankjha",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "commitConvention": "none"
 }
