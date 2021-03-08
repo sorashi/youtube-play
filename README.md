@@ -1,5 +1,4 @@
-youtube-play
-===
+# youtube-play
 
 **Note: [mps-youtube](https://github.com/mps-youtube/mps-youtube) is a much better alternative to this project.**
 
@@ -7,7 +6,8 @@ youtube-play is a command-line utility for Windows written in C#, which uses [yo
 
 I needed a way to play music from YouTube without having Chrome open with a video playing in the background. That's why youtube-play is very lightweight. A quick analysis with [Process Explorer](https://technet.microsoft.com/sysinternals/processexplorer) shows 0.00…-0.01… % CPU usage and ~20 MB of RAM usage (including all sub-processes).
 
-# Installation
+## Installation
+
 youtube-play needs `youtube-dl` and `ffplay` to be in your PATH.
 The fastest and easiest way to do this is using [Chocolatey](https://chocolatey.org/install).
 To install Chocolatey, open `cmd` as Administrator, and run the following command:
@@ -26,29 +26,34 @@ choco install youtube-dl ffmpeg -y
 
 After that, you are ready to download youtube-play. Recent release with binaries can be found [here](https://github.com/Sorashi/youtube-play/releases/latest).
 
-# Usage
+## Usage
+
 Run `youtube-play` with any number of arguments, where an argument can be either:
+
 - link to a YouTube video, playlist or channel
 - `-f` flag followed by a filename, with a link to a YouTube video, playlist or channel on each line
 
 ### Examples
-- `youtube-play https://www.youtube.com/watch?v=ePX5qgDe9s4`
-	- plays the video
-- `youtube-play https://www.youtube.com/playlist?list=PLZHQObOWTQDMV832OM2s0zRjsgphR5UJR`
-	- plays the whole playlist
-- `youtube-play https://www.youtube.com/playlist?list=PLZHQObOWTQDMV832OM2s0zRjsgphR5UJR https://www.youtube.com/watch?v=lX44CAz-JhU https://www.youtube.com/watch?v=qeMFqkcPYcg` 
-	- plays the whole playlist and another two videos
-- `youtube-play ScLcV4feihM _QiSu4yO0Kk`
-	- plays two videos – note that it's enough to tell the video id
-- `youtube-play _QiSu4yO0Kk -f list1.txt ScLcV4feihM -f list2.txt`
-	- plays one video, then reads the file `list1.txt` and plays every link on each line of the file, then plays another video and then plays every link in the file `list2.txt`
 
-# Alternatives
+- `youtube-play https://www.youtube.com/watch?v=ePX5qgDe9s4`
+  - plays the video
+- `youtube-play https://www.youtube.com/playlist?list=PLZHQObOWTQDMV832OM2s0zRjsgphR5UJR`
+  - plays the whole playlist
+- `youtube-play https://www.youtube.com/playlist?list=PLZHQObOWTQDMV832OM2s0zRjsgphR5UJR https://www.youtube.com/watch?v=lX44CAz-JhU https://www.youtube.com/watch?v=qeMFqkcPYcg`
+  - plays the whole playlist and another two videos
+- `youtube-play ScLcV4feihM _QiSu4yO0Kk`
+  - plays two videos – note that it's enough to tell the video id
+- `youtube-play _QiSu4yO0Kk -f list1.txt ScLcV4feihM -f list2.txt`
+  - plays one video, then reads the file `list1.txt` and plays every link on each line of the file, then plays another video and then plays every link in the file `list2.txt`
+
+## Alternatives
+
 **[mps-youtube](https://github.com/mps-youtube/mps-youtube) is a much better alternative to this project. It has a huge community of developers, is multi-platform and written in Python. Too bad I found out about mps-youtube so late.**
 
 You can use [foobar2000](http://www.foobar2000.org/) with the [foo_youtube](https://fy.3dyd.com/) component to achieve the same. However, it's not a command-line utility, but a whole music player.
 
-# Planned features
+## Planned features
+
 - [ ] Global keyboard hook which will allow you to pause/stop the playback or skip the current song
 - [ ] Random playback – `-r` flag which will turn random shuffle on for the videos following the flag, repeating the flag will turn the shuffle off for the following links and vice versa
 - [ ] Support specifying ranges of videos from playlists to be played (currently the whole playlist is played from start to end)
@@ -65,7 +70,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
-# What is happening behind the scenes
+## What is happening behind the scenes
 
 It's pretty easy. I'll show you the process of doing the same thing without youtube-play (youtube-play uses a bit different commands that are more understandable for machines).
 
@@ -100,12 +105,14 @@ format code  |extension  |resolution |note
 Select the format that suits you the most and remember its `format code`. youtube-play prefers `audio only` formats with the largest bitrate possible (which you can find in the `note` column), but you can choose any format with sound, since the video will be omitted.
 
 Next, execute `youtube-dl -f <format code> -g <link>`. This will respond with a direct link to the file. You can either copy it in the `cmd`, or pipe it into your clipboard like this:
-```
+
+```bash
 youtube-dl -f <format code> -g <link> | clip
 ```
 
 To stream the sound from the file, execute this command:
-```
+
+```bash
 ffplay -volume <number from 0 to 100> -nodisp -vn -autoexit "<paste the direct link here>"
 ```
 
