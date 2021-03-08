@@ -1,22 +1,18 @@
-name: Build
+name: dotnet build
 
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    env:
+      config: 'Release'
+
     steps:
-    - uses: actions/checkout@v1
-    - name: Add msbuild to PATH
-      uses: warrenbuckley/Setup-MSBuild@v1
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@v1.0.2
-    - name: Restore packages
-      run: nuget restore youtube-play.sln
-    - name: MSBuild project
-      run: msbuild youtube-play.sln /p:Configuration=Release
-    - name: Upload binary
-      uses: actions/upload-artifact@v1
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
       with:
-        name: youtube-play
-        path: youtube-play/bin/Release/youtube-play.exe
+        dotnet-version: 5.0.100
+    - name: Build
+      run: dotnet build src/KasiopeaApi.sln -l "console;verbosity=detailed" --configuration Release
