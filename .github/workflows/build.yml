@@ -15,4 +15,4 @@ jobs:
       with:
         dotnet-version: 5.0.100
     - name: Build
-      run: dotnet build src/KasiopeaApi.sln -l "console;verbosity=detailed" --configuration Release
+      run: dotnet build -c Release
