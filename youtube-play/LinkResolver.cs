@@ -89,7 +89,7 @@ namespace youtube_play
                             Extension = x["ext"].ToString(),
                             Width = x.Value<int?>("width"),
                             Height = x.Value<int?>("height"),
-                            Note = x["format_note"].ToString(),
+                            Note = x["format_note"]?.ToString(),
                             Bitrate = x.Value<float?>("abr") ?? x.Value<float?>("tbr"),
                             Url = x["url"].ToString()
                         }
