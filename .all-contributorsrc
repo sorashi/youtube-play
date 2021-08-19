@@ -35,6 +35,16 @@
       "contributions": [
         "maintenance"
       ]
+    },
+    {
+      "login": "mryanmurphy",
+      "name": "Matt",
+      "avatar_url": "https://avatars.githubusercontent.com/u/641427?v=4",
+      "profile": "https://github.com/mryanmurphy",
+      "contributions": [
+        "code",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

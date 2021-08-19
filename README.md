@@ -70,6 +70,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
     <td align="center"><a href="https://sorashi.github.io/"><img src="https://avatars.githubusercontent.com/u/6270283?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dennis Pražák</b></sub></a><br /><a href="https://github.com/sorashi/youtube-play/commits?author=sorashi" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/pcroland"><img src="https://avatars3.githubusercontent.com/u/11183274?v=4?s=100" width="100px;" alt=""/><br /><sub><b>pcroland</b></sub></a><br /><a href="https://github.com/sorashi/youtube-play/issues?q=author%3Apcroland" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/themayankjha"><img src="https://avatars.githubusercontent.com/u/34495260?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mayank Jha</b></sub></a><br /><a href="#maintenance-themayankjha" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/mryanmurphy"><img src="https://avatars.githubusercontent.com/u/641427?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matt</b></sub></a><br /><a href="https://github.com/sorashi/youtube-play/commits?author=mryanmurphy" title="Code">💻</a> <a href="https://github.com/sorashi/youtube-play/issues?q=author%3Amryanmurphy" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
